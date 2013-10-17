@@ -180,3 +180,8 @@ $vxlan1 = {
 
 $vxlan_udp_port = 8479
 
+
+$user1 = {
+  name        => 'opsuser',
+  role        => 'badrole',
+}

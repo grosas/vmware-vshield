@@ -13,11 +13,9 @@ Puppet::Type.newtype(:vshield_user) do
   end
 
   newproperty(:role, :array_matching => :all, :parent => Puppet::Property::VMware_Array ) do
-    desc 'user role, this defines the user role'
-    munge do |value|
-      # Possible roles are super_user, vshield_admin, enterprise_admin, security_admin, and auditor
-      value.to_s
+    desc 'User role, this defines the user role.  Possible roles are super_user, vshield_admin, enterprise_admin, security_admin, and auditor.'
+    validate do |value|
+      newvalues(:super_user, :vshield_admin, :enterprise_admin, :security_admin, :auditor )
     end
   end
-
 end
